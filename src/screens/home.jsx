@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Text } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; // Assuming you're using Expo for icons
+import { View, ScrollView, StyleSheet, Text, Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const HomeScreen = () => {
   return (
@@ -45,15 +45,20 @@ const HomeScreen = () => {
       </ScrollView>
           <View style={styles.post}>
             <View style={styles.userInfo}>
-              <View style={styles.avatar}></View>
-              <Text style={styles.username}>mr.diablo</Text>
+              <View style={styles.leftInfo}>
+                <View style={styles.avatar}></View>
+                <Text style={styles.username}>mr.diablo</Text>
+              </View>
+              <View style={styles.rightInfo}>
+                <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+              </View>
             </View>
             <View style={styles.postContent}></View>
             <View style={styles.actionButtons}>
               <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" />
-                <Ionicons name="chatbubble-outline" size={24} color="black" />
-                <Ionicons name="share-social-outline" size={24} color="black" />
+              <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
+                <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
               </View>
               <View style={styles.rightActions}>
                 <Ionicons name="bookmark-outline" size={24} color="black" />
@@ -62,15 +67,20 @@ const HomeScreen = () => {
           </View>
           <View style={styles.post}>
             <View style={styles.userInfo}>
-              <View style={styles.avatar}></View>
-              <Text style={styles.username}>mr.diablo</Text>
+            <View style={styles.leftInfo}>
+                <View style={styles.avatar}></View>
+                <Text style={styles.username}>mr.diablo</Text>
+              </View>
+              <View style={styles.rightInfo}>
+                <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+              </View>
             </View>
             <View style={styles.postContent}></View>
             <View style={styles.actionButtons}>
               <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" />
-                <Ionicons name="chatbubble-outline" size={24} color="black" />
-                <Ionicons name="share-social-outline" size={24} color="black" />
+              <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
+                <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
               </View>
               <View style={styles.rightActions}>
                 <Ionicons name="bookmark-outline" size={24} color="black" />
@@ -79,15 +89,20 @@ const HomeScreen = () => {
           </View>
           <View style={styles.post}>
             <View style={styles.userInfo}>
-              <View style={styles.avatar}></View>
-              <Text style={styles.username}>mr.diablo</Text>
+            <View style={styles.leftInfo}>
+                <View style={styles.avatar}></View>
+                <Text style={styles.username}>mr.diablo</Text>
+              </View>
+              <View style={styles.rightInfo}>
+                <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+              </View>
             </View>
             <View style={styles.postContent}></View>
             <View style={styles.actionButtons}>
               <View style={styles.leftActions}>
                 <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
                 <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                <Ionicons name="share-social-outline" size={24} color="black" style={styles.leftActionButton} />
+                <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
               </View>
               <View style={styles.rightActions}>
                 <Ionicons name="bookmark-outline" size={24} color="black" />
@@ -96,7 +111,13 @@ const HomeScreen = () => {
           </View>
         </View>
       </ScrollView>
-
+      <View style={styles.bottomNavigationBar}>
+        <Ionicons name="planet-outline" size={24} color="black" />
+        <Ionicons name="compass-outline" size={24} color="black" />
+        <Ionicons name="game-controller-outline" size={24} color="black" />
+        <Ionicons name="notifications-outline" size={24} color="black" />
+        <Ionicons name="add-circle-outline" size={24} color="black" />
+      </View>
     </View>
   );
 };
@@ -107,7 +128,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   storiesContainer: {
-    paddingVertical: 15,
+    paddingVertical: 5,
     paddingHorizontal: 5,
     flexDirection: 'row',
   },
@@ -142,12 +163,17 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   post: {
-    marginBottom: 20,
+    marginVertical: 20,
   },
   userInfo: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 10,
+  },
+  leftInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   avatar: {
     width: 40,
@@ -161,7 +187,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   postContent: {
-    height: 400, // Adjust height as needed
+    height: 400,
     backgroundColor: 'aliceblue',
     marginBottom: 10,
   },
@@ -174,9 +200,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   leftActionButton: {
-    marginHorizontal: 100,
+    marginRight: 20,
   },
   rightActions: {},
+  bottomNavigationBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderTopWidth: 0,
+    borderTopColor: '#ccc',
+    paddingVertical: 20,
+    ...Platform.select({
+      android: {
+        elevation: 20,
+      },
+    }),
+  },
 });
 
 export default HomeScreen;

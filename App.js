@@ -33,7 +33,11 @@ function App() {
                 // For example, you can navigate to a messages screen
               }}
             >
-              <Ionicons name="paper-plane-outline" size={24} color="black" />
+              <Ionicons
+                name="chatbubble-ellipses-outline"
+                size={24}
+                color="black"
+              />
             </TouchableOpacity>
           ),
         }}
