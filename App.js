@@ -1,52 +1,17 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import HomeScreen from "./src/screens/home";
+import MainCharacterFeed from "./src/screens/mainCharacterFeed";
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerTitle: "Omantix",
-          headerTitleAlign: "center",
-          headerLeft: () => (
-            <TouchableOpacity
-              style={{ paddingLeft: 10 }}
-              onPress={() => {
-                // Handle menu icon press
-                // For example, you can navigate to a menu screen
-              }}
-            >
-              <Ionicons name="menu-outline" size={24} color="black" />
-            </TouchableOpacity>
-          ),
-          headerRight: () => (
-            <TouchableOpacity
-              style={{ paddingRight: 10 }}
-              onPress={() => {
-                // Handle message icon press
-                // For example, you can navigate to a messages screen
-              }}
-            >
-              <Ionicons
-                name="chatbubble-ellipses-outline"
-                size={24}
-                color="black"
-              />
-            </TouchableOpacity>
-          ),
-        }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "Omantix" }}
-        />
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="MainCharacterFeed" component={MainCharacterFeed} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
