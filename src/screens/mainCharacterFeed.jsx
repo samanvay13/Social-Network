@@ -1,8 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const MainCharacterFeed = () => {
+  const navigation = useNavigation();
+
+  const closeMainCharacterFeed = () => {
+    navigation.navigate('Home');
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -10,7 +16,7 @@ const MainCharacterFeed = () => {
           <Ionicons name="lock-closed-outline" size={24} color="black" />
           <Text style={styles.username}>Samanvaya Tripathi</Text>
         </View>
-        <TouchableOpacity style={styles.exitButton}>
+        <TouchableOpacity style={styles.exitButton} onPress={closeMainCharacterFeed}>
           <Ionicons name="exit-outline" size={24} color="black" />
         </TouchableOpacity>
       </View>

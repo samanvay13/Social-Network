@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { View, ScrollView, StyleSheet, Text, Platform, TouchableOpacity, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import MenuContent from '../components/menuContent';
-import { useNavigation } from '@react-navigation/native';
+import VideoPost from '../components/videoPost';
 
 const HomeScreen = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -96,54 +96,12 @@ const HomeScreen = () => {
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
                 </View>
               </View>
-              <View style={styles.postContent}></View>
+              <View style={styles.postContent}>
+                <Image></Image>
+              </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
                 <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
-                </View>
-                <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
-                </View>
-              </View>
-            </View>
-            <View style={styles.post}>
-              <View style={styles.userInfo}>
-              <View style={styles.leftInfo}>
-                  <View style={styles.avatar}></View>
-                  <Text style={styles.username}>mr.diablo</Text>
-                </View>
-                <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
-                </View>
-              </View>
-              <View style={styles.postContent}></View>
-              <View style={styles.actionButtons}>
-                <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
-                </View>
-                <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
-                </View>
-              </View>
-            </View>
-            <View style={styles.post}>
-              <View style={styles.userInfo}>
-              <View style={styles.leftInfo}>
-                  <View style={styles.avatar}></View>
-                  <Text style={styles.username}>mr.diablo</Text>
-                </View>
-                <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
-                </View>
-              </View>
-              <View style={styles.postContent}></View>
-              <View style={styles.actionButtons}>
-                <View style={styles.leftActions}>
-                  <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -156,19 +114,19 @@ const HomeScreen = () => {
         </ScrollView>
       <View style={styles.bottomNavigationBar}>
         <TouchableOpacity>
-          <Ionicons name="planet-outline" size={24} color="black" />
+          <Ionicons name="planet-outline" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="compass-outline" size={24} color="black" />
+          <Ionicons name="compass-outline" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="game-controller-outline" size={24} color="black" />
+          <Ionicons name="game-controller-outline" size={40} color="black" />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="notifications-outline" size={24} color="black" />
+          <Ionicons name="notifications-outline" size={30} color="black" />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="add-circle-outline" size={24} color="black" />
+          <Ionicons name="add-circle-outline" size={30} color="black" />
         </TouchableOpacity>
       </View>
     </View>
@@ -278,8 +236,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   postContent: {
-    height: 400,
-    backgroundColor: 'aliceblue',
+    height: "auto",
     marginBottom: 10,
   },
   actionButtons: {

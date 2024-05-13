@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
@@ -13,11 +13,11 @@ const MenuContent = ({ onCloseMenu }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={onCloseMenu}>
-        <Ionicons name="chevron-back-outline" size={24} color="black" />
+        <Ionicons name="close-outline" size={24} color="black" />
       </TouchableOpacity>
       <View style={styles.avatarContainer}>
-        <Ionicons name="accessibility-outline" size={100} color="black" />
-        <Text style={styles.username}>mr.diablo</Text>
+        <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+        <Text style={styles.username}>@mr.diablo</Text>
       </View>
       <View style={styles.menuItems}>
         <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
@@ -37,14 +37,14 @@ const MenuContent = ({ onCloseMenu }) => {
           <Text style={styles.menuItemText}>Saved Posts</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
-          <Ionicons name="settings-outline" size={24} color="black" />
-          <Text style={styles.menuItemText}>Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
           <Ionicons name="log-out-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Logout</Text>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity style={styles.settingsButton} onPress={() => {}}>
+        <Ionicons name="settings-outline" size={24} color="black" />
+        <Text style={styles.settingsButtonText}>Settings</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -65,9 +65,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 100,
   },
+  avatarImage: {
+    width: 200,
+    height: 200,
+    borderRadius: 50,
+  },
   username: {
-    fontSize: 20,
-    marginTop: 30,
+    fontSize: 25,
+    marginTop: 10,
+    fontWeight: "bold"
   },
   menuItems: {
     marginTop: 50,
@@ -78,6 +84,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   menuItemText: {
+    marginLeft: 10,
+    fontSize: 18,
+  },
+  settingsButton: {
+    position: "absolute",
+    bottom: 20,
+    alignSelf: "center",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  settingsButtonText: {
     marginLeft: 10,
     fontSize: 18,
   },
