@@ -38,7 +38,7 @@ const HomeScreen = () => {
               >
                 <Ionicons name="menu-outline" size={30} color="black" />
               </TouchableOpacity>
-              <Text style={styles.headerTitle}>omantix</Text>
+              <Text style={styles.headerTitle}>Omantix</Text>
               <TouchableOpacity
                 style={{ paddingRight: 10 }}
                 onPress={() => {}}
