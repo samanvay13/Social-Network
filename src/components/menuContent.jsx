@@ -17,7 +17,11 @@ const MenuContent = ({ onCloseMenu }) => {
       </TouchableOpacity>
       <View style={styles.avatarContainer}>
         <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
-        <Text style={styles.username}>@mr.diablo</Text>
+        <View style={styles.row}>
+          <View style={styles.onlineDot} />
+          <Text style={styles.username}>mr.diablo</Text>
+          <Ionicons name="chevron-down-outline" size={18} color="black" style={styles.profileDropdown} />
+        </View>
       </View>
       <View style={styles.menuItems}>
         <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
@@ -64,19 +68,36 @@ const styles = StyleSheet.create({
   avatarContainer: {
     alignItems: "center",
     marginTop: 100,
+    paddingBottom: 20,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#ccc',
   },
   avatarImage: {
     width: 200,
     height: 200,
     borderRadius: 50,
   },
+  row: {
+    flexDirection: 'row'
+  },
+  onlineDot: {
+    marginVertical: 10,
+    marginHorizontal: 10,
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "lime",
+  },
   username: {
     fontSize: 25,
-    marginTop: 10,
     fontWeight: "bold"
   },
+  profileDropdown: {
+    marginVertical: 5,
+    marginHorizontal: 5,
+  },
   menuItems: {
-    marginTop: 50,
+    marginTop: 20,
   },
   menuItem: {
     flexDirection: "row",
@@ -85,7 +106,8 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     marginLeft: 10,
-    fontSize: 18,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
   settingsButton: {
     position: "absolute",
@@ -96,6 +118,7 @@ const styles = StyleSheet.create({
   },
   settingsButtonText: {
     marginLeft: 10,
+    fontWeight: 'bold',
     fontSize: 18,
   },
 });

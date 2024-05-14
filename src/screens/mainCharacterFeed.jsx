@@ -31,7 +31,7 @@ const MainCharacterFeed = () => {
         <View style={styles.sectionRight}>
           <View style={styles.profilePicture}></View>
           <TouchableOpacity style={styles.editButton}>
-            <Ionicons name="create-outline" size={20} color="black" />
+            <Ionicons name="build-outline" size={20} color="black" />
             <Text>Edit Profile</Text>
           </TouchableOpacity>
         </View>
