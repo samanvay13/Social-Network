@@ -1,11 +1,16 @@
 import React, { useRef, useState } from 'react';
 import { View, ScrollView, StyleSheet, Text, Platform, TouchableOpacity, Animated, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 import MenuContent from '../components/menuContent';
 
 const HomeScreen = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuAnimation = useRef(new Animated.Value(0)).current;
+
+  const [fontsLoaded] = useFonts({
+    'Bradley-Handwriting': require('../assets/fonts/bradhitc.ttf'),
+  })
 
   const toggleMenu = () => {
     Animated.timing(menuAnimation, {
@@ -38,7 +43,7 @@ const HomeScreen = () => {
               >
                 <Ionicons name="menu-outline" size={30} color="black" />
               </TouchableOpacity>
-              <Text style={styles.headerTitle}>Omantix</Text>
+              <Text style={[styles.headerTitle, {fontFamily: 'Bradley-Handwriting'}]}>Omantix</Text>
               <TouchableOpacity
                 style={{ paddingRight: 10 }}
                 onPress={() => {}}
@@ -101,7 +106,7 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>thebrucewayne</Text>
+                  <Text style={styles.username}>BruceWayne</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
@@ -132,7 +137,7 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>walterwhite_08</Text>
+                  <Text style={styles.username}>WalterWhite</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
@@ -163,7 +168,7 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>lawyer.harveyspecter</Text>
+                  <Text style={styles.username}>HarveySpecter</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
@@ -194,7 +199,7 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>satoruuu1gojooo</Text>
+                  <Text style={styles.username}>SatoruuuGojooo</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
@@ -225,7 +230,7 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>wick4action</Text>
+                  <Text style={styles.username}>JohnWick</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
@@ -287,6 +292,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
     paddingVertical: 10,
+    ...Platform.select({
+      android: {
+        elevation: 20,
+      },
+    }),
   },
   headerTitle: {
     fontWeight: 'bold',
@@ -302,15 +312,12 @@ const styles = StyleSheet.create({
     zIndex: 1,
     borderRightWidth: 0,
     borderRightColor: '#ccc',
-  },
-  backdrop: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'black',
-    zIndex: 0,
+    paddingVertical: 10,
+    ...Platform.select({
+      android: {
+        elevation: 500,
+      },
+    }),
   },
   storiesContainer: {
     paddingVertical: 10,
@@ -318,9 +325,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   myStory: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#f7f7f7',
+    width: 120,
+    height: 150,
     borderRadius: 40,
     marginRight: 10,
     position: 'relative',
@@ -328,7 +334,7 @@ const styles = StyleSheet.create({
   plusIcon: {
     position: 'absolute',
     bottom: 0,
-    right: 0,
+    right: 25,
     backgroundColor: 'dodgerblue',
     borderRadius: 10,
     width: 20,
@@ -337,19 +343,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   story: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#f7f7f7',
+    width: 120,
+    height: 150,
     borderRadius: 40,
     marginRight: 10,
     overflow: 'hidden',
   },
   myAvatarImage: {
-    width: 80,
-    height: 80,
+    width: 120,
+    height: 150,
   },
   avatarImage: {
-    width: 80,
+    width: 120,
     height: 150,
   },
   postsContainer: {
@@ -376,14 +381,13 @@ const styles = StyleSheet.create({
   avatar: {
     width: 40,
     height: 40,
-    backgroundColor: '#f7f7f7',
     borderRadius: 20,
     marginHorizontal: 5,
     overflow: 'hidden',
   },
   postAvatarImage: {
     width: 40,
-    height: 80,
+    height: 40,
   },
   username: {
     fontSize: 16,

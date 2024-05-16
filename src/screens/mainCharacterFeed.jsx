@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
     ...Platform.select({
       android: {
-        elevation: 3,
+        elevation: 20,
       },
     }),
   },
@@ -182,17 +182,20 @@ const styles = StyleSheet.create({
   },
   sectionLeft: {
     flex: 1,
+    alignItems: 'center',
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 10,
+    alignItems: 'center',
   },
   quoteBox: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightgray',
     paddingVertical: 40,
+    paddingHorizontal: 20,
     borderRadius: 5,
   },
   quoteText: {
@@ -261,7 +264,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   addMemory: {
-    paddingHorizontal: 30,
+    paddingHorizontal: 20,
     paddingTop: 20,
   },
   addMemoryPlusIcon: {
