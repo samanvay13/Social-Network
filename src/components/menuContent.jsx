@@ -6,10 +6,6 @@ import { useNavigation } from "@react-navigation/native";
 const MenuContent = ({ onCloseMenu }) => {
   const navigation = useNavigation();
 
-  const navigateToMainCharacterFeed = () => {
-    navigation.navigate('MainCharacterFeed');
-  };
-
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.closeButton} onPress={onCloseMenu}>
@@ -32,7 +28,7 @@ const MenuContent = ({ onCloseMenu }) => {
           <Ionicons name="people-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Communities</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={navigateToMainCharacterFeed}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('SecurityPinScreen')}>
           <Ionicons name="finger-print-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Main Character Feed</Text>
         </TouchableOpacity>

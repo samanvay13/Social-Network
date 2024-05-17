@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./src/screens/home";
 import MainCharacterFeed from "./src/screens/mainCharacterFeed";
+import SecurityPinScreen from "./src/screens/securityPin";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="MainCharacterFeed" component={MainCharacterFeed} options={{ headerShown: false }} />
+        <Stack.Screen name="SecurityPinScreen" component={SecurityPinScreen} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
