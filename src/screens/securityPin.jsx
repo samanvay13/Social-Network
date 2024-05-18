@@ -31,10 +31,10 @@ const SecurityPinScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={24} color="#662d91" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => {}}>
-          <Ionicons name="settings-outline" size={24} color="black" />
+          <Ionicons name="settings-outline" size={24} color="#662d91" />
         </TouchableOpacity>
       </View>
       <View style={styles.description}>
@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
   },
   descriptionText: {
+    color: '#4B0082',
     fontSize: 20,
   },
   pinContainer: {
@@ -135,14 +136,15 @@ const styles = StyleSheet.create({
   },
   pinText: {
     fontSize: 36,
+    color: '#720e9e',
   },
   verifyButton: {
     alignSelf: 'center',
-    backgroundColor: '#007BFF',
+    backgroundColor: '#4B0082',
     paddingVertical: 10,
     paddingHorizontal: 30,
     borderRadius: 20,
-    marginBottom: 20,
+    marginBottom: 30,
   },
   verifyButtonText: {
     color: '#fff',
@@ -158,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   numericButton: {
-    backgroundColor: '#ccc',
+    backgroundColor: '#E6E6FA',
     width: 80,
     height: 80,
     borderRadius: 40,

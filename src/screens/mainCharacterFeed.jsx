@@ -37,8 +37,7 @@ const MainCharacterFeed = () => {
             <Image source={require('../assets/profile pictures/samanvay.jpg')} style={styles.profilePicture} />
           </View>
           <TouchableOpacity style={styles.editButton}>
-            <Ionicons name="settings-outline" size={20} color="black" />
-            <Text>Edit Profile</Text>
+            <Text style={styles.editButtonText}>Edit Profile</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -222,7 +221,14 @@ const styles = StyleSheet.create({
   editButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
+    backgroundColor: '#007BFF',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+  },
+  editButtonText: {
+    color: '#fff',
+    fontSize: 16,
   },
   memoriesContainer: {
     marginTop: 20,
