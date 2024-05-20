@@ -36,7 +36,7 @@ const MenuContent = ({ onCloseMenu }) => {
           <Ionicons name="bookmark-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Saved Posts</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Login')}>
           <Ionicons name="log-out-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Logout</Text>
         </TouchableOpacity>

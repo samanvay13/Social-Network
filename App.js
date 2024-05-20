@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./src/screens/home";
 import MainCharacterFeed from "./src/screens/mainCharacterFeed";
 import SecurityPinScreen from "./src/screens/securityPin";
+import LoginScreen from "./src/screens/login";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,6 +13,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}} />
         <Stack.Screen name="MainCharacterFeed" component={MainCharacterFeed} options={{ headerShown: false }} />
         <Stack.Screen name="SecurityPinScreen" component={SecurityPinScreen} options={{headerShown: false}} />
       </Stack.Navigator>
