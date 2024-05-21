@@ -24,17 +24,9 @@ const MenuContent = ({ onCloseMenu }) => {
           <Ionicons name="person-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
-          <Ionicons name="people-outline" size={24} color="black" />
-          <Text style={styles.menuItemText}>Communities</Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('SecurityPinScreen')}>
           <Ionicons name="finger-print-outline" size={24} color="black" />
           <Text style={styles.menuItemText}>Main Character Feed</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem} onPress={() => {}}>
-          <Ionicons name="bookmark-outline" size={24} color="black" />
-          <Text style={styles.menuItemText}>Saved Posts</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Login')}>
           <Ionicons name="log-out-outline" size={24} color="black" />

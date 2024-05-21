@@ -7,7 +7,11 @@ const SecurityPinScreen = ({ navigation }) => {
 
   const handlePinInput = (digit) => {
     if (pin.length < 4) {
-      setPin(pin + digit);
+      const newPin = pin + digit;
+      setPin(newPin);
+      if (newPin.length === 4) {
+        setTimeout(() => handleVerifyPin(newPin), 500);
+      }
     }
   };
 
@@ -19,11 +23,12 @@ const SecurityPinScreen = ({ navigation }) => {
     setPin('');
   };
 
-  const handleVerifyPin = () => {
-    if (pin === '1234') {
+  const handleVerifyPin = (pinToVerify) => {
+    if (pinToVerify === '1234') {
       navigation.navigate('MainCharacterFeed');
     } else {
       alert('Incorrect PIN');
+      handleResetPin();
     }
   };
 
@@ -31,14 +36,12 @@ const SecurityPinScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#662d91" />
+          <Ionicons name="arrow-back" size={24} color="black" />
         </TouchableOpacity>
+        <Text style={styles.title}>Main Character Feed</Text>
         <TouchableOpacity onPress={() => {}}>
-          <Ionicons name="settings-outline" size={24} color="#662d91" />
+          <Ionicons name="settings-outline" size={24} color="black" />
         </TouchableOpacity>
-      </View>
-      <View style={styles.description}>
-        <Text style={styles.descriptionText}>Enter 4-digit PIN to proceed</Text>
       </View>
       <View style={styles.pinContainer}>
         {Array(4).fill().map((_, index) => (
@@ -47,9 +50,6 @@ const SecurityPinScreen = ({ navigation }) => {
           </View>
         ))}
       </View>
-      <TouchableOpacity style={styles.verifyButton} onPress={handleVerifyPin}>
-        <Text style={styles.verifyButtonText}>Verify PIN</Text>
-      </TouchableOpacity>
       <View style={styles.numericButtonsContainer}>
         <View style={styles.numericRow}>
           <NumericButton digit={1} onPress={() => handlePinInput(1)} />
@@ -72,7 +72,7 @@ const SecurityPinScreen = ({ navigation }) => {
           </TouchableOpacity>
           <NumericButton digit={0} onPress={() => handlePinInput(0)} />
           <TouchableOpacity style={styles.numericButton} onPress={handleBackspace}>
-            <Ionicons name="backspace-outline" size={24} color="black" />
+            <Ionicons name="backspace-outline" size={24} color="#662d91" />
           </TouchableOpacity>
         </View>
       </View>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingTop: 40,
-    paddingVertical: 15,
+    paddingVertical: 20,
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
     ...Platform.select({
@@ -107,14 +107,6 @@ const styles = StyleSheet.create({
     }),
   },
   title: {
-    fontSize: 24,
-  },
-  description: {
-    alignSelf: 'center',
-    paddingVertical: 50,
-  },
-  descriptionText: {
-    color: '#4B0082',
     fontSize: 20,
   },
   pinContainer: {
@@ -122,12 +114,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginBottom: 60,
+    marginVertical: 80,
     alignSelf: 'center',
   },
   pinBlock: {
-    width: 70,
-    height: 80,
+    width: 60,
+    height: 60,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
@@ -135,21 +127,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   pinText: {
-    fontSize: 36,
+    fontSize: 30,
     color: '#720e9e',
-  },
-  verifyButton: {
-    alignSelf: 'center',
-    backgroundColor: '#4B0082',
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-    borderRadius: 20,
-    marginBottom: 30,
-  },
-  verifyButtonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   numericButtonsContainer: {
     paddingHorizontal: 20,
@@ -157,7 +136,7 @@ const styles = StyleSheet.create({
   numericRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginBottom: 10,
+    marginBottom: 25,
   },
   numericButton: {
     backgroundColor: '#E6E6FA',
@@ -168,7 +147,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   numericButtonText: {
-    fontSize: 24,
+    fontSize: 22,
+    color: '#662d91',
     fontWeight: 'bold',
   },
 });
