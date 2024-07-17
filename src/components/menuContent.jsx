@@ -1,13 +1,28 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Image, Switch } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 const MenuContent = ({ onCloseMenu }) => {
   const navigation = useNavigation();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleSwitch = () => setIsDarkMode(previousState => !previousState);
 
   return (
     <View style={styles.container}>
+      <View style={styles.toggleContainer}>
+        <Ionicons name="sunny-outline" size={24} color="black" />
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={isDarkMode ? "#fff" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={isDarkMode}
+          style={styles.toggleSwitch}
+        />
+        <Ionicons name="moon-outline" size={24} color="black" />
+      </View>
       <TouchableOpacity style={styles.closeButton} onPress={onCloseMenu}>
         <Ionicons name="close-outline" size={24} color="black" />
       </TouchableOpacity>
@@ -47,6 +62,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 20,
   },
+  toggleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    zIndex: 1,
+  },
+  toggleSwitch: {
+    marginHorizontal: 10,
+  },
   closeButton: {
     position: "absolute",
     top: 40,
@@ -66,7 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   row: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   onlineDot: {
     marginVertical: 10,
@@ -78,7 +104,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 25,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   profileDropdown: {
     marginVertical: 5,
@@ -94,7 +120,7 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     marginLeft: 10,
-    fontWeight: 'bold',
+    fontWeight: "600",
     fontSize: 16,
   },
   settingsButton: {
@@ -106,7 +132,7 @@ const styles = StyleSheet.create({
   },
   settingsButtonText: {
     marginLeft: 10,
-    fontWeight: 'bold',
+    fontWeight: "600",
     fontSize: 18,
   },
 });
