@@ -47,7 +47,7 @@ const HomeScreen = () => {
               >
                 <Ionicons name="menu-outline" size={30} color="black" />
               </TouchableOpacity>
-              <Text style={styles.headerTitle}>Omantix</Text>
+              <Text style={styles.headerTitle}>OMANTIX</Text>
               <TouchableOpacity
                 style={{ paddingRight: 10 }}
                 onPress={() => {}}
@@ -304,8 +304,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: 'Bradley-Hand',
-    fontWeight: 'bold',
-    fontSize: 25,
+    fontSize: 35,
   },
   menu: {
     position: 'absolute',
