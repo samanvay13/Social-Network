@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "omantix",
+    "name": "Omantix",
     "slug": "omantix",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/OmantixSplash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "./src/assets/fonts/*"
     ],
     "ios": {
       "supportsTablet": true
@@ -31,7 +31,9 @@
       [
         "expo-font",
         {
-          "fonts": ["./src/assets/fonts/bradhitc.tff"]
+          "fonts": [
+            "./assets/fonts/bradhitc.tff"
+          ]
         }
       ]
     ]

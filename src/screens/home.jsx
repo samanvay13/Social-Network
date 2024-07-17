@@ -9,8 +9,8 @@ const HomeScreen = () => {
   const menuAnimation = useRef(new Animated.Value(0)).current;
 
   const [fontsLoaded] = useFonts({
-    'Bradley-Handwriting': require('../assets/fonts/bradhitc.ttf'),
-  })
+    'Bradley-Hand': require('../assets/fonts/bradhitc.ttf'),
+  });
 
   const toggleMenu = () => {
     Animated.timing(menuAnimation, {
@@ -25,6 +25,10 @@ const HomeScreen = () => {
     inputRange: [0, 1],
     outputRange: [-300, 0],
   });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -288,10 +292,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingTop: 40,
+    paddingTop: 45,
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
-    paddingVertical: 10,
+    paddingBottom: 15,
     ...Platform.select({
       android: {
         elevation: 20,
@@ -299,6 +303,7 @@ const styles = StyleSheet.create({
     }),
   },
   headerTitle: {
+    fontFamily: 'Bradley-Hand',
     fontWeight: 'bold',
     fontSize: 25,
   },

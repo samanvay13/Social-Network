@@ -27,7 +27,7 @@ const SecurityPinScreen = ({ navigation }) => {
     if (pinToVerify === '1234') {
       navigation.navigate('MainCharacterFeed');
     } else {
-      alert('Incorrect PIN');
+      alert('Incorrect PIN !');
       handleResetPin();
     }
   };
@@ -67,9 +67,6 @@ const SecurityPinScreen = ({ navigation }) => {
           <NumericButton digit={9} onPress={() => handlePinInput(9)} />
         </View>
         <View style={styles.numericRow}>
-          <TouchableOpacity style={styles.numericButton} onPress={handleResetPin}>
-            <Ionicons name="reload-outline" size={24} color="black" />
-          </TouchableOpacity>
           <NumericButton digit={0} onPress={() => handlePinInput(0)} />
           <TouchableOpacity style={styles.numericButton} onPress={handleBackspace}>
             <Ionicons name="backspace-outline" size={24} color="#662d91" />
@@ -135,7 +132,7 @@ const styles = StyleSheet.create({
   },
   numericRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
     marginBottom: 25,
   },
   numericButton: {
@@ -143,6 +140,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
+    marginHorizontal: 22,
     justifyContent: 'center',
     alignItems: 'center',
   },
