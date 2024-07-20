@@ -111,7 +111,7 @@ const HomeScreen = () => {
               <View style={styles.userInfo}>
                 <View style={styles.leftInfo}>
                   <View style={styles.avatar}>
-                    <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
+                    <Image source={require('../assets/avatars/sapiens10.png')} style={styles.postAvatarImage} />
                   </View>
                   <Text style={styles.username}>BruceWayne</Text>
                 </View>
@@ -142,7 +142,7 @@ const HomeScreen = () => {
               <View style={styles.userInfo}>
                 <View style={styles.leftInfo}>
                   <View style={styles.avatar}>
-                    <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
+                    <Image source={require('../assets/avatars/sapiens12.png')} style={styles.postAvatarImage} />
                   </View>
                   <Text style={styles.username}>WalterWhite</Text>
                 </View>
@@ -173,7 +173,7 @@ const HomeScreen = () => {
               <View style={styles.userInfo}>
                 <View style={styles.leftInfo}>
                   <View style={styles.avatar}>
-                    <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
+                    <Image source={require('../assets/avatars/sapiens9.png')} style={styles.postAvatarImage} />
                   </View>
                   <Text style={styles.username}>HarveySpecter</Text>
                 </View>
@@ -204,7 +204,7 @@ const HomeScreen = () => {
               <View style={styles.userInfo}>
                 <View style={styles.leftInfo}>
                   <View style={styles.avatar}>
-                    <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
+                    <Image source={require('../assets/avatars/sapiens8.png')} style={styles.postAvatarImage} />
                   </View>
                   <Text style={styles.username}>SatoruuuGojooo</Text>
                 </View>
@@ -235,7 +235,7 @@ const HomeScreen = () => {
               <View style={styles.userInfo}>
                 <View style={styles.leftInfo}>
                   <View style={styles.avatar}>
-                    <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.postAvatarImage} />
+                    <Image source={require('../assets/avatars/sapiens7.png')} style={styles.postAvatarImage} />
                   </View>
                   <Text style={styles.username}>JohnWick</Text>
                 </View>
@@ -390,15 +390,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    width: 40,
+    width: 35,
     height: 40,
     borderRadius: 20,
     marginHorizontal: 5,
     overflow: 'hidden',
   },
   postAvatarImage: {
-    width: 40,
-    height: 40,
+    width: 45,
+    height: 45,
   },
   username: {
     fontSize: 16,
