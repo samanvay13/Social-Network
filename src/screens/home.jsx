@@ -45,7 +45,10 @@ const HomeScreen = () => {
                 style={{ paddingLeft: 10 }}
                 onPress={toggleMenu}
               >
-                <Ionicons name="menu-outline" size={30} color="black" />
+                <Image source={require('../assets/avatars/sapiens12.png')} style={styles.headerAvatarImage} />
+                <View style={styles.plusIcon}>
+                  <Ionicons name="chevron-forward-outline" size={10} color="white" />
+                </View>
               </TouchableOpacity>
               <Text style={styles.headerTitle}>OMANTIX</Text>
               <TouchableOpacity
@@ -53,7 +56,7 @@ const HomeScreen = () => {
                 onPress={() => {}}
               >
                 <Ionicons
-                  name="chatbubble-ellipses-outline"
+                  name="chatbubbles-outline"
                   size={24}
                   color="black"
                 />
@@ -66,41 +69,41 @@ const HomeScreen = () => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.storiesContainer}>
             <View style={styles.storiesContainer}>
-              <View style={styles.myStory}>
+              {/* <View style={styles.myStory}>
                 <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.myAvatarImage} />
                 <View style={styles.plusIcon}>
                   <Ionicons name="add-outline" size={16} color="white" />
                 </View>
+              </View> */}
+              <View style={styles.story}>
+                <Image source={require('../assets/avatars/sapiens1.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens2.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens3.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens4.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens5.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens6.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens7.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens8.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens9.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
-              </View>
-              <View style={styles.story}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+                <Image source={require('../assets/avatars/sapiens10.png')} style={styles.avatarImage} />
               </View>
             </View>
           </ScrollView>
@@ -292,15 +295,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingTop: 45,
+    paddingTop: 40,
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
-    paddingBottom: 15,
+    paddingBottom: 10,
     ...Platform.select({
       android: {
         elevation: 20,
       },
     }),
+  },
+  headerAvatarImage: {
+    height: 70,
+    width: 35,
   },
   headerTitle: {
     fontFamily: 'Bradley-Hand',
@@ -338,11 +345,11 @@ const styles = StyleSheet.create({
   plusIcon: {
     position: 'absolute',
     bottom: 0,
-    right: 25,
+    right: -2,
     backgroundColor: 'dodgerblue',
     borderRadius: 10,
-    width: 20,
-    height: 20,
+    width: 12.5,
+    height: 12.5,
     alignItems: 'center',
     justifyContent: 'center',
   },

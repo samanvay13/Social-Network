@@ -27,7 +27,7 @@ const MenuContent = ({ onCloseMenu }) => {
         <Ionicons name="close-outline" size={24} color="black" />
       </TouchableOpacity>
       <View style={styles.avatarContainer}>
-        <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.avatarImage} />
+        <Image source={require('../assets/avatars/sapiens12.png')} style={styles.avatarImage} />
         <View style={styles.row}>
           <View style={styles.onlineDot} />
           <Text style={styles.username}>mr.diablo</Text>
