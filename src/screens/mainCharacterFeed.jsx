@@ -2,13 +2,23 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, StyleSheet, Platform, Image, ImageBackground } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
 
 const MainCharacterFeed = () => {
   const navigation = useNavigation();
 
+  const [fontsLoaded] = useFonts({
+    'Bradley-Hand': require('../assets/fonts/bradhitc.ttf'),
+  });
+
   const closeMainCharacterFeed = () => {
     navigation.navigate('Home');
   }
+
+  if (!fontsLoaded) {
+    return null;
+  }
+  
   return (
     <ScrollView
         vertical
@@ -28,9 +38,9 @@ const MainCharacterFeed = () => {
       <View style={styles.section}>
         <View style={styles.sectionLeft}>
           <Text style={styles.sectionTitle}>What would my Epitaph read?</Text>
-          <View style={styles.quoteBox}>
+          <ImageBackground source={require('../assets/other/blackstone.png')} style={styles.quoteBox}>
             <Text style={styles.quoteText}>"Beautiful & Damned"</Text>
-          </View>
+          </ImageBackground>
         </View>
         <View style={styles.sectionRight}>
           <View style={styles.profilePictureContainer}>
@@ -185,7 +195,6 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
     marginBottom: 10,
     alignItems: 'center',
   },
@@ -195,10 +204,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'lightgray',
     paddingVertical: 40,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 20,
+    overflow: 'hidden',
   },
   quoteText: {
+    fontFamily: 'Bradley-Hand',
     fontSize: 20,
+    color: '#fff',
+    textAlign: 'center',
   },
   sectionRight: {
     alignItems: 'center',
