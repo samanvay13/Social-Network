@@ -69,12 +69,6 @@ const HomeScreen = () => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.storiesContainer}>
             <View style={styles.storiesContainer}>
-              {/* <View style={styles.myStory}>
-                <Image source={require('../assets/avatars/mr.diablo.png')} style={styles.myAvatarImage} />
-                <View style={styles.plusIcon}>
-                  <Ionicons name="add-outline" size={16} color="white" />
-                </View>
-              </View> */}
               <View style={styles.story}>
                 <Image source={require('../assets/avatars/sapiens1.png')} style={styles.avatarImage} />
               </View>
@@ -105,6 +99,12 @@ const HomeScreen = () => {
               <View style={styles.story}>
                 <Image source={require('../assets/avatars/sapiens10.png')} style={styles.avatarImage} />
               </View>
+              <View style={styles.story}>
+                <Image source={require('../assets/avatars/sapiens11.png')} style={styles.avatarImage} />
+              </View>
+              <View style={styles.story}>
+                <Image source={require('../assets/avatars/sapiens12.png')} style={styles.avatarImage} />
+              </View>
             </View>
           </ScrollView>
             <View style={styles.post}>
@@ -129,7 +129,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -160,7 +160,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -191,7 +191,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -222,7 +222,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -253,7 +253,7 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                <Ionicons name="flame-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
                   <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
                   <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
                 </View>
@@ -426,6 +426,11 @@ const styles = StyleSheet.create({
   },
   leftActions: {
     flexDirection: 'row',
+  },
+  litIcon: {
+    height: 23,
+    width: 23,
+    marginRight: 20,
   },
   leftActionButton: {
     marginRight: 20,
