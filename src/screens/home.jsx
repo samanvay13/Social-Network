@@ -6,6 +6,7 @@ import MenuContent from '../components/menuContent';
 
 const HomeScreen = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const menuAnimation = useRef(new Animated.Value(0)).current;
 
   const [fontsLoaded] = useFonts({
@@ -26,50 +27,54 @@ const HomeScreen = () => {
     outputRange: [-300, 0],
   });
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   if (!fontsLoaded) {
     return null;
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, isDarkMode && styles.darkContainer]}>
       <Animated.View style={[styles.menu, { transform: [{ translateX: menuTranslateX }] }]}>
-        <MenuContent onCloseMenu={toggleMenu} />
+        <MenuContent onCloseMenu={toggleMenu} isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       </Animated.View>
       <ScrollView
         vertical
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.postsContainer}>
-          <View style={styles.container}>
-            <View style={styles.header}>
-              <TouchableOpacity
-                style={{ paddingLeft: 10 }}
-                onPress={toggleMenu}
-              >
-                <Image source={require('../assets/avatars/sapiens12.png')} style={styles.headerAvatarImage} />
-                <View style={styles.plusIcon}>
-                  <Ionicons name="chevron-forward-outline" size={10} color="white" />
-                </View>
-              </TouchableOpacity>
-              <Text style={styles.headerTitle}>OMANTIX</Text>
-              <TouchableOpacity
-                style={{ paddingRight: 10 }}
-                onPress={() => {}}
-              >
-                <Ionicons
-                  name="chatbubbles-outline"
-                  size={24}
-                  color="black"
-                />
-              </TouchableOpacity>
-            </View>
+        <View style={styles.container}>
+          <View style={[styles.header, isDarkMode && styles.darkHeader]}>
+            <TouchableOpacity
+              style={{ paddingLeft: 10 }}
+              onPress={toggleMenu}
+            >
+              <Image source={require('../assets/avatars/sapiens12.png')} style={styles.headerAvatarImage} />
+              <View style={styles.plusIcon}>
+                <Ionicons name="chevron-forward-outline" size={10} color="white" />
+              </View>
+            </TouchableOpacity>
+            <Text style={[styles.headerTitle, isDarkMode && styles.darkHeaderTitle]}>OMANTIX</Text>
+            <TouchableOpacity
+              style={{ paddingRight: 10 }}
+              onPress={() => {}}
+            >
+              <Ionicons
+                name="chatbubbles-outline"
+                size={24}
+                color={isDarkMode ? "white" : "black"}
+              />
+            </TouchableOpacity>
           </View>
+        </View>
         <View style={styles.postsContainer}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={styles.storiesContainer}>
             <View style={styles.storiesContainer}>
-              <View style={styles.story}>
+            <View style={styles.story}>
                 <Image source={require('../assets/avatars/sapiens1.png')} style={styles.avatarImage} />
               </View>
               <View style={styles.story}>
@@ -264,21 +269,21 @@ const HomeScreen = () => {
             </View>
           </View>
         </ScrollView>
-      <View style={styles.bottomNavigationBar}>
+      <View style={[styles.bottomNavigationBar, isDarkMode && styles.darkBottomNavigationBar]}>
         <TouchableOpacity>
-          <Ionicons name="planet-outline" size={30} color="black" />
+          <Ionicons name="planet-outline" size={30} color={isDarkMode ? "white" : "black"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="compass-outline" size={30} color="black" />
+          <Ionicons name="compass-outline" size={30} color={isDarkMode ? "white" : "black"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="game-controller-outline" size={40} color="black" />
+          <Ionicons name="game-controller-outline" size={40} color={isDarkMode ? "white" : "black"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="notifications-outline" size={30} color="black" />
+          <Ionicons name="notifications-outline" size={30} color={isDarkMode ? "white" : "black"} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Ionicons name="add-circle-outline" size={30} color="black" />
+          <Ionicons name="add-circle-outline" size={30} color={isDarkMode ? "white" : "black"} />
         </TouchableOpacity>
       </View>
     </View>
@@ -289,6 +294,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  darkContainer: {
+    backgroundColor: '#000',
   },
   header: {
     flexDirection: 'row',
@@ -305,6 +313,10 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  darkHeader: {
+    backgroundColor: '#000',
+    borderBottomColor: '#333',
+  },
   headerAvatarImage: {
     height: 70,
     width: 35,
@@ -312,6 +324,9 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'Bradley-Hand',
     fontSize: 35,
+  },
+  darkHeaderTitle: {
+    color: '#fff',
   },
   menu: {
     position: 'absolute',
@@ -376,7 +391,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingBottom: 30,
     borderTopColor: '#ccc',
-    borderTopWidth: 0.2
+    borderTopWidth: 0.2,
   },
   userInfo: {
     flexDirection: 'row',
@@ -449,13 +464,20 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  darkBottomNavigationBar: {
+    backgroundColor: '#000',
+    borderTopColor: '#333',
+  },
   caption: {
     paddingVertical: 7,
     paddingHorizontal: 20,
   },
   captionText: {
     fontSize: 16,
-  }
+  },
+  darkCaptionText: {
+    color: '#fff',
+  },
 });
 
 export default HomeScreen;
