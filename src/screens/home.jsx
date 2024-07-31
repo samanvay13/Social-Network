@@ -121,7 +121,7 @@ const HomeScreen = () => {
                   <Text style={styles.username}>BruceWayne</Text>
                 </View>
                 <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+                  <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
@@ -134,12 +134,12 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Ionicons name="flame-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="chatbubble-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="arrow-redo-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
                 </View>
                 <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
+                  <Ionicons name="bookmark-outline" size={24} color={isDarkMode ? "white" : "black"} />
                 </View>
               </View>
             </View>
@@ -152,7 +152,7 @@ const HomeScreen = () => {
                   <Text style={styles.username}>WalterWhite</Text>
                 </View>
                 <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+                  <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
@@ -165,12 +165,12 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Ionicons name="flame-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="chatbubble-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="arrow-redo-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
                 </View>
                 <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
+                  <Ionicons name="bookmark-outline" size={24} color={isDarkMode ? "white" : "black"} />
                 </View>
               </View>
             </View>
@@ -183,7 +183,7 @@ const HomeScreen = () => {
                   <Text style={styles.username}>HarveySpecter</Text>
                 </View>
                 <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+                  <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
@@ -196,12 +196,12 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Ionicons name="flame-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="chatbubble-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="arrow-redo-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
                 </View>
                 <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
+                  <Ionicons name="bookmark-outline" size={24} color={isDarkMode ? "white" : "black"} />
                 </View>
               </View>
             </View>
@@ -214,7 +214,7 @@ const HomeScreen = () => {
                   <Text style={styles.username}>SatoruuuGojooo</Text>
                 </View>
                 <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+                  <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
@@ -227,12 +227,12 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Ionicons name="flame-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="chatbubble-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="arrow-redo-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
                 </View>
                 <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
+                  <Ionicons name="bookmark-outline" size={24} color={isDarkMode ? "white" : "black"} />
                 </View>
               </View>
             </View>
@@ -245,7 +245,7 @@ const HomeScreen = () => {
                   <Text style={styles.username}>JohnWick</Text>
                 </View>
                 <View style={styles.rightInfo}>
-                  <Ionicons name="ellipsis-vertical-outline" size={24} color="black"/>
+                  <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
@@ -258,12 +258,12 @@ const HomeScreen = () => {
               </View>
               <View style={styles.actionButtons}>
                 <View style={styles.leftActions}>
-                  <Image source={require('../assets/icons/litIcon.png')} style={styles.litIcon} />
-                  <Ionicons name="chatbubble-outline" size={24} color="black" style={styles.leftActionButton} />
-                  <Ionicons name="arrow-redo-outline" size={24} color="black" style={styles.leftActionButton} />
+                  <Ionicons name="flame-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="chatbubble-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
+                  <Ionicons name="arrow-redo-outline" size={24} color={isDarkMode ? "white" : "black"} style={styles.leftActionButton} />
                 </View>
                 <View style={styles.rightActions}>
-                  <Ionicons name="bookmark-outline" size={24} color="black" />
+                  <Ionicons name="bookmark-outline" size={24} color={isDarkMode ? "white" : "black"} />
                 </View>
               </View>
             </View>
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   darkContainer: {
-    backgroundColor: '#000',
+    backgroundColor: '#101010',
   },
   header: {
     flexDirection: 'row',
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
     }),
   },
   darkHeader: {
-    backgroundColor: '#000',
+    backgroundColor: '#070707',
     borderBottomColor: '#333',
   },
   headerAvatarImage: {
@@ -337,8 +337,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     zIndex: 1,
     borderRightWidth: 0,
-    borderRightColor: '#ccc',
-    paddingVertical: 10,
     ...Platform.select({
       android: {
         elevation: 500,
@@ -390,7 +388,7 @@ const styles = StyleSheet.create({
   post: {
     paddingVertical: 20,
     paddingBottom: 30,
-    borderTopColor: '#ccc',
+    borderTopColor: '#aaa',
     borderTopWidth: 0.2,
   },
   userInfo: {
@@ -416,6 +414,7 @@ const styles = StyleSheet.create({
     height: 45,
   },
   username: {
+    color: "#fff",
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -474,6 +473,7 @@ const styles = StyleSheet.create({
   },
   captionText: {
     fontSize: 16,
+    color: '#fff',
   },
   darkCaptionText: {
     color: '#fff',
