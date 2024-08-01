@@ -6,6 +6,8 @@ import { useFonts } from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const MainCharacterFeed = () => {
+  const route = useRoute();
+  const { isDarkMode } = route.params;
   const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({
@@ -25,135 +27,135 @@ const MainCharacterFeed = () => {
         vertical
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.postsContainer}>
-    <View style={styles.container}>
-      <LinearGradient
-        colors={['#4B0082', '#260142']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.header}
-      >
-        <View style={styles.leftSection}>
-          <Ionicons name="lock-closed-outline" size={24} color="white" />
-          <Text style={styles.username}>Samanvaya Tripathi</Text>
-        </View>
-        <TouchableOpacity style={styles.exitButton} onPress={closeMainCharacterFeed}>
-          <Ionicons name="exit-outline" size={24} color="white" />
-        </TouchableOpacity>
-      </LinearGradient>
-
-      <View style={styles.section}>
-        <View style={styles.sectionLeft}>
-          <Text style={styles.sectionTitle}>What would my Epitaph read?</Text>
-          <ImageBackground source={require('../assets/other/blackstone.png')} style={styles.quoteBox}>
-            <Text style={styles.quoteText}>"Beautiful & Damned"</Text>
-          </ImageBackground>
-        </View>
-        <View style={styles.sectionRight}>
-          <View style={styles.profilePictureContainer}>
-            <Image source={require('../assets/profile pictures/samanvay.jpg')} style={styles.profilePicture} />
+      <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+        <LinearGradient
+          colors={['#4B0082', '#260142']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.header}
+        >
+          <View style={styles.leftSection}>
+            <Ionicons name="lock-closed-outline" size={24} color="white" />
+            <Text style={styles.username}>Samanvaya Tripathi</Text>
           </View>
-          <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.editButtonText}>Edit Profile</Text>
+          <TouchableOpacity style={styles.exitButton} onPress={closeMainCharacterFeed}>
+            <Ionicons name="exit-outline" size={24} color="white" />
           </TouchableOpacity>
-        </View>
-      </View>
+        </LinearGradient>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.memoriesContainer}>
-      <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/me.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
-            </View>
+        <View style={styles.section}>
+          <View style={styles.sectionLeft}>
+            <Text style={[styles.sectionTitle, isDarkMode && styles.darkSectionTitle]}>What would my Epitaph read?</Text>
+            <ImageBackground source={require('../assets/other/blackstone.png')} style={styles.quoteBox}>
+              <Text style={styles.quoteText}>"Beautiful & Damned"</Text>
+            </ImageBackground>
           </View>
-          <Text style={styles.memoryTitle}>Me</Text>
+          <View style={styles.sectionRight}>
+            <View style={styles.profilePictureContainer}>
+              <Image source={require('../assets/profile pictures/samanvay.jpg')} style={styles.profilePicture} />
+            </View>
+            <TouchableOpacity style={styles.editButton}>
+              <Text style={styles.editButtonText}>Edit Profile</Text>
+            </TouchableOpacity>
+          </View>
         </View>
+
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.memoriesContainer}>
         <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/family.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/me.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Me</Text>
           </View>
-          <Text style={styles.memoryTitle}>Family</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/friends.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/family.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Family</Text>
           </View>
-          <Text style={styles.memoryTitle}>Friends</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/travel.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/friends.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Friends</Text>
           </View>
-          <Text style={styles.memoryTitle}>Travel</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/sports.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/travel.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Travel</Text>
           </View>
-          <Text style={styles.memoryTitle}>Sports</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/city.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/sports.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Sports</Text>
           </View>
-          <Text style={styles.memoryTitle}>City</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/nightlife.png')} style={styles.memoryImage} />
-            <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/city.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>City</Text>
           </View>
-          <Text style={styles.memoryTitle}>Night Life</Text>
-        </View>
-        <View style={styles.memory}>
-          <View style={styles.addMemory}>
-            <View style={styles.addMemoryPlusIcon}>
-              <Ionicons name="add-outline" size={30} color="black" />
+          <View style={styles.memory}>
+            <View style={styles.memoryCircle}>
+              <Image source={require('../assets/images/nightlife.png')} style={styles.memoryImage} />
+              <View style={styles.plusIcon}>
+                  <Ionicons name="add-outline" size={16} color="white" />
+              </View>
             </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Night Life</Text>
           </View>
-          <Text style={styles.memoryTitle}>Add New</Text>
+          <View style={styles.memory}>
+            <View style={styles.addMemory}>
+              <View style={styles.addMemoryPlusIcon}>
+                <Ionicons name="add-outline" size={30} color={isDarkMode ? "white" : "black"} />
+              </View>
+            </View>
+            <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Add New</Text>
+          </View>
+        </ScrollView>
+        <View style={styles.photoGrid}>
+          <Image source={require('../assets/images/image1.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image2.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image3.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image4.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image5.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image6.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image7.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image8.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image9.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image10.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image11.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image12.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image13.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image2.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image3.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image4.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image5.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image6.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image7.png')} style={styles.photo}></Image>
+          <Image source={require('../assets/images/image8.png')} style={styles.photo}></Image>
         </View>
-      </ScrollView>
-      <View style={styles.photoGrid}>
-        <Image source={require('../assets/images/image1.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image2.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image3.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image4.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image5.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image6.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image7.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image8.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image9.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image10.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image11.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image12.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image13.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image2.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image3.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image4.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image5.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image6.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image7.png')} style={styles.photo}></Image>
-        <Image source={require('../assets/images/image8.png')} style={styles.photo}></Image>
       </View>
-    </View>
     </ScrollView>
   );
 };
@@ -163,6 +165,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  darkContainer: {
+    backgroundColor: '#101010',
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -170,7 +175,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 40,
     paddingVertical: 10,
-    backgroundColor: '#fff',
     borderBottomColor: '#ccc',
     ...Platform.select({
       android: {
@@ -204,7 +208,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 10,
     alignItems: 'center',
-    // color: '#fff',
+  },
+  darkSectionTitle: {
+    color: '#fff',
   },
   quoteBox: {
     justifyContent: 'center',
@@ -289,7 +295,9 @@ const styles = StyleSheet.create({
   memoryTitle: {
     fontWeight: '600',
     fontSize: 14,
-    // color: '#fff',
+  },
+  darkMemoryTitle: {
+    color: '#fff',
   },
   addMemory: {
     paddingHorizontal: 20,
