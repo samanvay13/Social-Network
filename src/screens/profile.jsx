@@ -5,14 +5,16 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const MainCharacterFeed = () => {
+const ProfileScreen = () => {
+  const route = useRoute();
+  const { isDarkMode } = route.params;
   const navigation = useNavigation();
 
   const [fontsLoaded] = useFonts({
     'Bradley-Hand': require('../assets/fonts/bradhitc.ttf'),
   });
 
-  const closeMainCharacterFeed = () => {
+  const closeProfileScreen = () => {
     navigation.navigate('Home');
   }
 
@@ -25,7 +27,7 @@ const MainCharacterFeed = () => {
         vertical
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.postsContainer}>
-    <View style={styles.container}>
+    <View style={[styles.container, isDarkMode && styles.darkContainer]}>
       <LinearGradient
         colors={['#4B0082', '#260142']}
         start={{ x: 0, y: 0 }}
@@ -33,58 +35,73 @@ const MainCharacterFeed = () => {
         style={styles.header}
       >
         <View style={styles.leftSection}>
-          <Ionicons name="lock-closed-outline" size={24} color="white" />
-          <Text style={styles.username}>Samanvaya Tripathi</Text>
+          <TouchableOpacity style={styles.exitButton} onPress={closeProfileScreen}>
+            <Ionicons name="arrow-back-outline" size={24} color="white" />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.exitButton} onPress={closeMainCharacterFeed}>
-          <Ionicons name="exit-outline" size={24} color="white" />
+        <Text style={styles.username}>@ mr.diablo</Text>
+        <TouchableOpacity>
+          <Ionicons name="settings-outline" size={22} color="white" />
         </TouchableOpacity>
       </LinearGradient>
 
       <View style={styles.section}>
-        <View style={styles.sectionLeft}>
-          <Text style={styles.sectionTitle}>What would my Epitaph read?</Text>
-          <ImageBackground source={require('../assets/other/blackstone.png')} style={styles.quoteBox}>
-            <Text style={styles.quoteText}>"Beautiful & Damned"</Text>
-          </ImageBackground>
+        <View style={styles.profilePictureContainer}>
+         <Image source={require('../assets/avatars/sapiens12.png')} style={styles.profilePicture} />
         </View>
-        <View style={styles.sectionRight}>
-          <View style={styles.profilePictureContainer}>
-            <Image source={require('../assets/profile pictures/samanvay.jpg')} style={styles.profilePicture} />
-          </View>
-          <TouchableOpacity style={styles.editButton}>
-            <Text style={styles.editButtonText}>Edit Profile</Text>
-          </TouchableOpacity>
+        <ImageBackground source={require('../assets/other/blackstone.png')} style={styles.quoteBox}>
+         <Text style={styles.quoteText}>"All Things Relative"</Text>
+        </ImageBackground>
+      </View>
+
+      <View style={styles.profileInfo}>
+        <TouchableOpacity>
+          <LinearGradient
+            colors={['#8A2BE2', '#4B0082']}
+            style={styles.followButton}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <Text style={styles.followButtonText}>+ Follow</Text>
+          </LinearGradient>
+        </TouchableOpacity>
+        <View style={styles.info}>
+          <Text style={[styles.infoText, isDarkMode && styles.darkInfoText]}>5k</Text>
+          <Text style={[styles.infoLabel, isDarkMode && styles.darkInfoLabel]}>Lit Count</Text>
+        </View>
+        <View style={styles.info}>
+          <Text style={[styles.infoText, isDarkMode && styles.darkInfoText]}>18</Text>
+          <Text style={[styles.infoLabel, isDarkMode && styles.darkInfoLabel]}>Communities</Text>
         </View>
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.memoriesContainer}>
       <View style={styles.memory}>
           <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/me.png')} style={styles.memoryImage} />
+            <Image source={require('../assets/images/gaming.png')} style={styles.memoryImage} />
             <View style={styles.plusIcon}>
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Me</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Gaming</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/family.png')} style={styles.memoryImage} />
+            <Image source={require('../assets/images/music.png')} style={styles.memoryImage} />
             <View style={styles.plusIcon}>
-                <Ionicons name="add-outline" size={16} color="white" />
+              <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Family</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Music</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
-            <Image source={require('../assets/images/friends.png')} style={styles.memoryImage} />
+            <Image source={require('../assets/images/movies.png')} style={styles.memoryImage} />
             <View style={styles.plusIcon}>
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Friends</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Movies</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
@@ -93,7 +110,7 @@ const MainCharacterFeed = () => {
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Travel</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Travel</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
@@ -102,7 +119,7 @@ const MainCharacterFeed = () => {
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Sports</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Sports</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
@@ -111,7 +128,7 @@ const MainCharacterFeed = () => {
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>City</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>City</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.memoryCircle}>
@@ -120,15 +137,15 @@ const MainCharacterFeed = () => {
                 <Ionicons name="add-outline" size={16} color="white" />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Night Life</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Night Life</Text>
         </View>
         <View style={styles.memory}>
           <View style={styles.addMemory}>
             <View style={styles.addMemoryPlusIcon}>
-              <Ionicons name="add-outline" size={30} color="black" />
+              <Ionicons name="add-outline" size={30} color={isDarkMode ? "white" : "black"} />
             </View>
           </View>
-          <Text style={styles.memoryTitle}>Add New</Text>
+          <Text style={[styles.memoryTitle, isDarkMode && styles.darkMemoryTitle]}>Add New</Text>
         </View>
       </ScrollView>
       <View style={styles.photoGrid}>
@@ -163,13 +180,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  darkContainer: {
+    backgroundColor: '#101010',
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingTop: 40,
-    paddingVertical: 10,
+    paddingTop: 45,
+    paddingVertical: 16,
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
     ...Platform.select({
@@ -188,30 +208,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
-  exitButton: {
-    padding: 10,
-  },
-  section: {
-    flexDirection: 'row',
-    paddingHorizontal: 10,
-    marginTop: 20,
-  },
-  sectionLeft: {
-    flex: 1,
-    alignItems: 'center',
-  },
   sectionTitle: {
     fontSize: 18,
     marginBottom: 10,
     alignItems: 'center',
-    // color: '#fff',
   },
   quoteBox: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'lightgray',
     paddingVertical: 40,
-    paddingHorizontal: 20,
+    paddingHorizontal: 40,
+    marginRight: 25,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -221,35 +229,21 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
-  sectionRight: {
+  section: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 30,
+    justifyContent: 'center',
   },
   profilePictureContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
+    width: 150,
+    height: 150,
     marginBottom: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
   profilePicture: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-
-  },
-  editButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#007BFF',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 20,
-  },
-  editButtonText: {
-    color: '#fff',
-    fontSize: 16,
+    width: 180,
+    height: 180,
   },
   memoriesContainer: {
     marginTop: 20,
@@ -289,7 +283,9 @@ const styles = StyleSheet.create({
   memoryTitle: {
     fontWeight: '600',
     fontSize: 14,
-    // color: '#fff',
+  },
+  darkMemoryTitle: {
+    color: '#fff',
   },
   addMemory: {
     paddingHorizontal: 20,
@@ -313,6 +309,41 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     borderRadius: 10,
   },
+  profileInfo: {
+    paddingVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+  },
+  info: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  infoText: {
+    fontFamily: 'Bradley-Hand',
+    fontSize: 32,
+  },
+  darkInfoText: {
+    color: '#fff',
+  },
+  infoLabel: {
+    fontSize: 15,
+  },
+  darkInfoLabel: {
+    color: '#fff',
+  },
+  followButton: {
+    width: 130,
+    height: 50,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  followButtonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
 });
 
-export default MainCharacterFeed;
+export default ProfileScreen;

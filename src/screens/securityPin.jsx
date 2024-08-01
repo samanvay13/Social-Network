@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRoute } from '@react-navigation/native';
 
 const SecurityPinScreen = ({ navigation }) => {
+  const route = useRoute();
+  const { isDarkMode } = route.params;
   const [pin, setPin] = useState('');
 
   const handlePinInput = (digit) => {
@@ -25,7 +29,7 @@ const SecurityPinScreen = ({ navigation }) => {
 
   const handleVerifyPin = (pinToVerify) => {
     if (pinToVerify === '1234') {
-      navigation.navigate('MainCharacterFeed');
+      navigation.navigate('MainCharacterFeed', { isDarkMode });
     } else {
       alert('Incorrect PIN !');
       handleResetPin();
@@ -33,16 +37,21 @@ const SecurityPinScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
+    <View style={[styles.container, isDarkMode && styles.darkContainer]}>
+      <LinearGradient
+        colors={['#4B0082', '#260142']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.header}
+      >
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={24} color="white" />
         </TouchableOpacity>
         <Text style={styles.title}>Main Character Feed</Text>
         <TouchableOpacity onPress={() => {}}>
-          <Ionicons name="settings-outline" size={24} color="black" />
+          <Ionicons name="settings-outline" size={24} color="white" />
         </TouchableOpacity>
-      </View>
+      </LinearGradient>
       <View style={styles.pinContainer}>
         {Array(4).fill().map((_, index) => (
           <View key={index} style={styles.pinBlock}>
@@ -88,12 +97,15 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  darkContainer: {
+    backgroundColor: '#101010',
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
-    paddingTop: 40,
+    paddingTop: 50,
     paddingVertical: 20,
     backgroundColor: '#fff',
     borderBottomColor: '#ccc',
@@ -104,7 +116,8 @@ const styles = StyleSheet.create({
     }),
   },
   title: {
-    fontSize: 20,
+    color: '#fff',
+    fontSize: 22,
   },
   pinContainer: {
     width: 350,

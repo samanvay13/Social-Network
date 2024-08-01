@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image, Switch } from "react-n
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from 'expo-font';
 import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const MenuContent = ({ onCloseMenu, isDarkMode, toggleTheme }) => {
   const navigation = useNavigation();
@@ -15,39 +16,44 @@ const MenuContent = ({ onCloseMenu, isDarkMode, toggleTheme }) => {
   }
 
   return (
-    <View style={[styles.menuContainer, isDarkMode && styles.darkMenuContainer]}>
+    <LinearGradient
+      colors={['#4B0082', '#150024']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={[styles.menuContainer]}
+    >
       <View style={styles.menuHeader}>
         <TouchableOpacity onPress={onCloseMenu} style={styles.closeIcon}>
-          <Ionicons name="close" size={24} color={isDarkMode ? "white" : "black"} />
+          <Ionicons name="close" size={24} color={"white"} />
         </TouchableOpacity>
       </View>
       <View>
         <Image source={require("../assets/avatars/sapiens12.png")} style={styles.avatarImage}/>
-        <Text style={[styles.username, isDarkMode && styles.darkUsername]}>@ mr.diablo</Text>
+        <Text style={styles.darkUsername}>@ mr.diablo</Text>
       </View>
       <View style={styles.menuItems}>
-        <TouchableOpacity style={styles.menuItem}>
-          <Ionicons name="person-outline" size={24} color={isDarkMode ? "white" : "black"} />
-          <Text style={[styles.menuItemText, isDarkMode && styles.darkMenuItemText]}>Profile</Text>
+        <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Profile', { isDarkMode })}>
+          <Ionicons name="person-outline" size={24} color={"white"} />
+          <Text style={styles.darkMenuItemText}>Profile</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuItem}  onPress={() => navigation.navigate('SecurityPinScreen')}>
-          <Ionicons name="lock-closed-outline" size={24} color={isDarkMode ? "white" : "black"} />
-          <Text style={[styles.menuItemText, isDarkMode && styles.darkMenuItemText]}>Main Character Feed</Text>
+        <TouchableOpacity style={styles.menuItem}  onPress={() => navigation.navigate('SecurityPinScreen', { isDarkMode })}>
+          <Ionicons name="lock-closed-outline" size={24} color={"white"} />
+          <Text style={styles.darkMenuItemText}>Main Character Feed</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuItem}>
-          <Ionicons name="settings-outline" size={24} color={isDarkMode ? "white" : "black"} />
-          <Text style={[styles.menuItemText, isDarkMode && styles.darkMenuItemText]}>Settings</Text>
+          <Ionicons name="settings-outline" size={24} color={"white"} />
+          <Text style={styles.darkMenuItemText}>Settings</Text>
         </TouchableOpacity>
         <View style={styles.themeToggle}>
-          <Text style={[styles.themeToggleText, isDarkMode && styles.darkThemeToggleText]}>Dark Mode</Text>
+          <Text style={styles.darkThemeToggleText}>Dark Mode</Text>
           <Switch value={isDarkMode} onValueChange={toggleTheme} />
         </View>
       </View>
       <TouchableOpacity style={styles.logoutButton} onPress={() => navigation.navigate('Login')}>
-        <Ionicons name="log-out-outline" size={24} color={isDarkMode ? "white" : "black"} />
-        <Text style={[styles.menuItemText, isDarkMode && styles.darkMenuItemText]}>Logout</Text>
+        <Ionicons name="log-out-outline" size={24} color={"#D22B2B"} />
+        <Text style={styles.logoutText}>Logout</Text>
       </TouchableOpacity>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -56,11 +62,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 20,
+    paddingBottom: 60,
     justifyContent: 'space-between',
   },
   darkMenuContainer: {
     backgroundColor: '#000',
-    adding: 20,
   },
   menuHeader: {
     flexDirection: 'row',
@@ -72,7 +78,7 @@ const styles = StyleSheet.create({
     height: 300,
   },
   closeIcon: {
-    padding: 10,
+    paddingTop: 20,
   },
   username: {
     alignSelf: 'center',
@@ -86,7 +92,9 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   menuItems: {
-    marginTop: 30,
+    paddingTop: 20,
+    borderTopWidth: 0.5,
+    borderTopColor: '#ccc',
   },
   menuItem: {
     flexDirection: 'row',
@@ -98,6 +106,8 @@ const styles = StyleSheet.create({
     marginLeft: 15,
   },
   darkMenuItemText: {
+    fontSize: 18,
+    marginLeft: 15,
     color: '#fff',
   },
   themeToggle: {
@@ -111,6 +121,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   darkThemeToggleText: {
+    fontSize: 18,
+    marginRight: 10,
     color: '#fff',
   },
   logoutButton: {
@@ -118,7 +130,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     bottom: 0,
-  }
+  },
+  logoutText: {
+    color: "#D22B2B",
+    fontSize: 18,
+    marginLeft: 10,
+  },
 });
 
 export default MenuContent;

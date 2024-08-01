@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text, Platform, TouchableOpacity, Animate
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import MenuContent from '../components/menuContent';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const HomeScreen = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,7 +46,12 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.postsContainer}>
         <View style={styles.container}>
-          <View style={[styles.header, isDarkMode && styles.darkHeader]}>
+          <LinearGradient
+            colors={['#4B0082', '#260142']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={[styles.darkHeader]}
+          >
             <TouchableOpacity
               style={{ paddingLeft: 10 }}
               onPress={toggleMenu}
@@ -55,18 +61,18 @@ const HomeScreen = () => {
                 <Ionicons name="chevron-forward-outline" size={10} color="white" />
               </View>
             </TouchableOpacity>
-            <Text style={[styles.headerTitle, isDarkMode && styles.darkHeaderTitle]}>OMANTIX</Text>
+            <Text style={[styles.darkHeaderTitle]}>OMANTIX</Text>
             <TouchableOpacity
               style={{ paddingRight: 10 }}
               onPress={() => {}}
             >
               <Ionicons
                 name="chatbubbles-outline"
-                size={24}
-                color={isDarkMode ? "white" : "black"}
+                size={27}
+                color={"white"}
               />
             </TouchableOpacity>
-          </View>
+          </LinearGradient>
         </View>
         <View style={styles.postsContainer}>
           <ScrollView
@@ -118,14 +124,14 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/sapiens10.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>BruceWayne</Text>
+                  <Text style={[styles.username, isDarkMode && styles.darkUsername]}>BruceWayne</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
-                <Text style={styles.captionText}>A Hero Can Be Anyone...</Text>
+                <Text style={[styles.captionText, isDarkMode && styles.darkCaptionText]}>A Hero Can Be Anyone...</Text>
               </View>
               <View style={styles.postContent}>
                 <View style={styles.imageContainer}>
@@ -149,14 +155,14 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/sapiens12.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>WalterWhite</Text>
+                  <Text style={[styles.username, isDarkMode && styles.darkUsername]}>WalterWhite</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
-                <Text style={styles.captionText}>If you don't know who I am, then maybe your best course would be to tread lightly.</Text>
+                <Text style={[styles.captionText, isDarkMode && styles.darkCaptionText]}>If you don't know who I am, then maybe your best course would be to tread lightly.</Text>
               </View>
               <View style={styles.postContent}>
                 <View style={styles.imageContainer}>
@@ -180,14 +186,14 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/sapiens9.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>HarveySpecter</Text>
+                  <Text style={[styles.username, isDarkMode && styles.darkUsername]}>HarveySpecter</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
-                <Text style={styles.captionText}>Sometimes good guys gotta do bad things to make the bad guys pay.</Text>
+                <Text style={[styles.captionText, isDarkMode && styles.darkCaptionText]}>Sometimes good guys gotta do bad things to make the bad guys pay.</Text>
               </View>
               <View style={styles.postContent}>
                 <View style={styles.imageContainer}>
@@ -211,14 +217,14 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/sapiens8.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>SatoruuuGojooo</Text>
+                  <Text style={[styles.username, isDarkMode && styles.darkUsername]}>SatoruuuGojooo</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
-                <Text style={styles.captionText}>Love is the most twisted curse of all.</Text>
+                <Text style={[styles.captionText, isDarkMode && styles.darkCaptionText]}>Love is the most twisted curse of all.</Text>
               </View>
               <View style={styles.postContent}>
                 <View style={styles.imageContainer}>
@@ -242,14 +248,14 @@ const HomeScreen = () => {
                   <View style={styles.avatar}>
                     <Image source={require('../assets/avatars/sapiens7.png')} style={styles.postAvatarImage} />
                   </View>
-                  <Text style={styles.username}>JohnWick</Text>
+                  <Text style={[styles.username, isDarkMode && styles.darkUsername]}>JohnWick</Text>
                 </View>
                 <View style={styles.rightInfo}>
                   <Ionicons name="ellipsis-vertical-outline" size={24} color={isDarkMode ? "white" : "black"}/>
                 </View>
               </View>
               <View style={styles.caption}>
-                <Text style={styles.captionText}>Si Vis Pacem, Para Bellum.</Text>
+                <Text style={[styles.captionText, isDarkMode && styles.darkCaptionText]}>Si Vis Pacem, Para Bellum.</Text>
               </View>
               <View style={styles.postContent}>
                 <View style={styles.imageContainer}>
@@ -314,8 +320,19 @@ const styles = StyleSheet.create({
     }),
   },
   darkHeader: {
-    backgroundColor: '#070707',
-    borderBottomColor: '#333',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingTop: 40,
+    borderBottomColor: '#ccc',
+    paddingBottom: 10,
+    ...Platform.select({
+      android: {
+        elevation: 20,
+      },
+    }),
+    backgroundColor: '#4A1985',
   },
   headerAvatarImage: {
     height: 70,
@@ -326,6 +343,8 @@ const styles = StyleSheet.create({
     fontSize: 35,
   },
   darkHeaderTitle: {
+    fontFamily: 'Bradley-Hand',
+    fontSize: 35,
     color: '#fff',
   },
   menu: {
@@ -414,6 +433,11 @@ const styles = StyleSheet.create({
     height: 45,
   },
   username: {
+    color: "#000",
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  darkUsername: {
     color: "#fff",
     fontSize: 16,
     fontWeight: 'bold',
@@ -464,7 +488,7 @@ const styles = StyleSheet.create({
     }),
   },
   darkBottomNavigationBar: {
-    backgroundColor: '#000',
+    backgroundColor: '#070707',
     borderTopColor: '#333',
   },
   caption: {
@@ -473,7 +497,7 @@ const styles = StyleSheet.create({
   },
   captionText: {
     fontSize: 16,
-    color: '#fff',
+    color: '#000',
   },
   darkCaptionText: {
     color: '#fff',
