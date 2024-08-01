@@ -2,14 +2,23 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { ImageBackground, StyleSheet, Text, TextInput, View, TouchableOpacity } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useFonts } from "expo-font";
 
 const LoginScreen = () => {
     const navigation = useNavigation();
 
+    const [fontsLoaded] = useFonts({
+        'Bradley-Hand': require('../assets/fonts/bradhitc.ttf'),
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
     return (
         <ImageBackground source={require('../assets/backgrounds/loginBackground7.png')} style={styles.container}>
             <View style={styles.loginHeader}>
-                <Text style={styles.loginHeaderText}>Omantix</Text>
+                <Text style={styles.loginHeaderText}>OMANTIX</Text>
             </View>
             <View style={styles.loginCard}>
                 <Text style={styles.cardHeaderText}>Sign-In</Text>
@@ -46,24 +55,23 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
     },
     loginHeader: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 100,
+        marginVertical: 80,
         paddingVertical: 30,
     },
     loginHeaderText: {
+        fontFamily: 'Bradley-Hand',
         color: '#fff',
-        fontSize: 40,
-        fontWeight: 'bold',
+        fontSize: 60,
     },
     loginCard: {
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)', // Transparent white for glass effect
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         borderRadius: 10,
         padding: 30,
     },
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
     input: {
         width: '100%',
         height: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)', // Semi-transparent white
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
         borderRadius: 5,
         paddingHorizontal: 15,
         marginBottom: 20,
