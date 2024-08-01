@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     bottom: 0,
-    width: 300,
+    width: 299,
     backgroundColor: '#fff',
     zIndex: 1,
     borderRightWidth: 0,
@@ -407,8 +407,9 @@ const styles = StyleSheet.create({
   post: {
     paddingVertical: 20,
     paddingBottom: 30,
-    borderTopColor: '#aaa',
-    borderTopWidth: 0.2,
+    borderTopColor: '#ccc',
+    borderTopWidth: 0.3,
+    borderRadius: 20,
   },
   userInfo: {
     flexDirection: 'row',

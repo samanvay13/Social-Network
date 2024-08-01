@@ -16,20 +16,27 @@ const LoginScreen = () => {
     }
 
     return (
-        <ImageBackground source={require('../assets/backgrounds/loginBackground7.png')} style={styles.container}>
+        <LinearGradient
+            colors={['#4B0082', '#000']}
+            start={{ x: 1, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.container}
+        >
             <View style={styles.loginHeader}>
                 <Text style={styles.loginHeaderText}>OMANTIX</Text>
             </View>
             <View style={styles.loginCard}>
                 <Text style={styles.cardHeaderText}>Sign-In</Text>
+                <Text style={styles.inputLabel}>Username</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Username"
+                    placeholder="@ |"
                     placeholderTextColor="#aaa"
                 />
+                <Text style={styles.inputLabel}>Password</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Password"
+                    placeholder="XXXXXXXX"
                     placeholderTextColor="#aaa"
                     secureTextEntry
                 />
@@ -39,7 +46,7 @@ const LoginScreen = () => {
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
                     <LinearGradient
-                        colors={['#8A2BE2', '#4B0082']}
+                        colors={['#02d650', '#007812']}
                         style={styles.loginButton}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
@@ -48,18 +55,19 @@ const LoginScreen = () => {
                     </LinearGradient>
                 </TouchableOpacity>
             </View>
-        </ImageBackground>
+        </LinearGradient>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#101010',
     },
     loginHeader: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 80,
+        marginTop: 80,
         paddingVertical: 30,
     },
     loginHeaderText: {
@@ -71,7 +79,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        backgroundColor: 'rgba(255, 255, 255, 0)',
         borderRadius: 10,
         padding: 30,
     },
@@ -83,14 +91,20 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         color: '#fff',
     },
+    inputLabel: {
+        color:'#fff',
+        alignSelf: 'flex-start',
+        padding: 15,
+        fontSize: 18,
+    },
     input: {
         width: '100%',
         height: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
         borderRadius: 5,
         paddingHorizontal: 15,
         marginBottom: 20,
-        fontSize: 18,
+        fontSize: 16,
         color: '#000',
     },
     loginButton: {
@@ -112,7 +126,7 @@ const styles = StyleSheet.create({
         width: '95%',
     },
     footerText: {
-        color: '#fff',
+        color: '#ffffad',
         fontSize: 16,
     },
 });
